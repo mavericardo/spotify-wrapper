@@ -1,0 +1,54 @@
+{
+  "name": "spotify-wrapper",
+  "version": "1.0.0",
+  "description": "spotify-wrapper",
+  "main": "index.js",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint src/*.js",
+    "prepush": "npm run lint && npm run test:coverage",
+    "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register",
+    "test:tdd": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register --watch",
+    "test:coverage": "nyc npm test"
+  },
+  "nyc": {
+    "functions": 80,
+    "lines": 80,
+    "check-coverage": true,
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "excludes": [
+      "tests/**"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mavericardo/spotify-wrapper"
+  },
+  "keywords": [
+    "js",
+    "tdd",
+    "library"
+  ],
+  "author": "Marcos Ricardo <mricardoalves99@gmail.com> (https://www.linkedin.com/in/mavericardo/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mavericardo/spotify-wrapper/issues"
+  },
+  "homepage": "https://github.com/mavericardo/spotify-wrapper#readme",
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "chai": "^4.3.4",
+    "eslint": "^8.4.0",
+    "eslint-config-airbnb": "^19.0.2",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "husky": "^7.0.4",
+    "mocha": "^9.1.3",
+    "nyc": "^15.1.0"
+  }
+}
